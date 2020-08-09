@@ -44,7 +44,7 @@ namespace UnitTest
 
             singlyLinkedList.Remove(DO);
 
-            Assert.IsTrue(Do.Next == null && Re.Next == Mi && Mi.Next == null);
+            Assert.IsFalse(singlyLinkedList.Contains(DO));
         }
 
         [Test]

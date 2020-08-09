@@ -1,24 +1,26 @@
 ﻿
-namespace LinkedList.SinglyLinkedList
+namespace LinkedList.DoublyLinkedList
 {
-    public class SinglyLinkedList
+    public class DoublyLinkedList
     {
-        private SinglyLinkedListNode Head;
-        private SinglyLinkedListNode Tail;
+        private DoublyLinkedListNode Head;
+        private DoublyLinkedListNode Tail;
 
         private int Size = 0;
 
-        public void AddLast(SinglyLinkedListNode linkedListNode)
+        public void AddLast(DoublyLinkedListNode doublyLinkedListNode)
         {
             if(Head == null)
             {
-                Head = linkedListNode;
-                Tail = linkedListNode;
+                Head = doublyLinkedListNode;
+                Tail = doublyLinkedListNode;
             }
             else
             {
-                Tail.Next = linkedListNode;
+                Tail.Next = doublyLinkedListNode;
+                var temp = Tail;
                 Tail = Tail.Next;
+                Tail.Previous = temp;
             }
             Size++;
         }
@@ -26,23 +28,28 @@ namespace LinkedList.SinglyLinkedList
         public void Remove(string value)
         {
             if (Head == null) return;
+
             var currentHead = Head;
 
             if (currentHead.Data == value)
             {
-                Head = currentHead.Next;
+                Head = Head.Next;
+                Head.Previous = null;
                 Size--;
             }
             else
             {
                 var prev = currentHead;
                 currentHead = currentHead.Next;
-
                 while (currentHead != null)
                 {
                     if (currentHead.Data == value)
                     {
                         prev.Next = currentHead.Next;
+                        if (prev.Next != null)
+                        {
+                            prev.Next.Previous = prev;
+                        }
                         Size--;
                         break;
                     }
@@ -56,7 +63,7 @@ namespace LinkedList.SinglyLinkedList
         {
             var currentHead = Head;
 
-            while(currentHead != null)
+            while (currentHead != null)
             {
                 if (currentHead.Data == value) return true;
 
@@ -66,7 +73,7 @@ namespace LinkedList.SinglyLinkedList
             return false;
         }
 
-        public SinglyLinkedListNode Find(string value)
+        public DoublyLinkedListNode Find(string value)
         {
             var currentHead = Head;
 
