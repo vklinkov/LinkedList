@@ -5,24 +5,24 @@ namespace UnitTest
 {
     public class SinglyLinkedListTest
     {
-        private SinglyLinkedList singlyLinkedList;
+        private SinglyLinkedList<string> singlyLinkedList;
 
         private const string DO = "Do";
         private const string RE = "Re";
         private const string MI = "Mi";
 
-        private SinglyLinkedListNode Do;
-        private SinglyLinkedListNode Re;
-        private SinglyLinkedListNode Mi;
+        private SinglyLinkedListNode<string> Do;
+        private SinglyLinkedListNode<string> Re;
+        private SinglyLinkedListNode<string> Mi;
 
         [SetUp]
         public void SetUp()
         {
-            singlyLinkedList = new SinglyLinkedList();
+            singlyLinkedList = new SinglyLinkedList<string>();
 
-            Do = new SinglyLinkedListNode(DO);
-            Re = new SinglyLinkedListNode(RE);
-            Mi = new SinglyLinkedListNode(MI);
+            Do = new SinglyLinkedListNode<string>(DO);
+            Re = new SinglyLinkedListNode<string>(RE);
+            Mi = new SinglyLinkedListNode<string>(MI);
         }
 
         [Test]
@@ -88,7 +88,7 @@ namespace UnitTest
             singlyLinkedList.AddLast(Do);
             singlyLinkedList.AddLast(Mi);
 
-            SinglyLinkedListNode linkedListNode = singlyLinkedList.Find(RE);
+            var linkedListNode = singlyLinkedList.Find(RE);
 
             Assert.IsNull(linkedListNode);
         }

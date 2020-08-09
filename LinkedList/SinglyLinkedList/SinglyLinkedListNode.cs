@@ -1,14 +1,14 @@
 ﻿namespace LinkedList.SinglyLinkedList
 {
-    public class SinglyLinkedListNode
+    public class SinglyLinkedListNode<T>
     {
-        public SinglyLinkedListNode(string data)
+        public SinglyLinkedListNode(T data)
         {
             Data = data;
         }
 
-        public string Data { get; set; }
-        public SinglyLinkedListNode Next { get; set; }
+        public T Data { get; set; }
+        public SinglyLinkedListNode<T> Next { get; set; }
 
     }
 }

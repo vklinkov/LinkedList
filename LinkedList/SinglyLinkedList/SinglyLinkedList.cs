@@ -1,14 +1,14 @@
 ﻿
 namespace LinkedList.SinglyLinkedList
 {
-    public class SinglyLinkedList
+    public class SinglyLinkedList<T>
     {
-        private SinglyLinkedListNode Head;
-        private SinglyLinkedListNode Tail;
+        private SinglyLinkedListNode<T> Head;
+        private SinglyLinkedListNode<T> Tail;
 
         private int Size = 0;
 
-        public void AddLast(SinglyLinkedListNode linkedListNode)
+        public void AddLast(SinglyLinkedListNode<T> linkedListNode)
         {
             if(Head == null)
             {
@@ -23,12 +23,12 @@ namespace LinkedList.SinglyLinkedList
             Size++;
         }
 
-        public void Remove(string value)
+        public void Remove(T value)
         {
             if (Head == null) return;
             var currentHead = Head;
 
-            if (currentHead.Data == value)
+            if (currentHead.Data.Equals(value))
             {
                 Head = currentHead.Next;
                 Size--;
@@ -40,7 +40,7 @@ namespace LinkedList.SinglyLinkedList
 
                 while (currentHead != null)
                 {
-                    if (currentHead.Data == value)
+                    if (currentHead.Data.Equals(value))
                     {
                         prev.Next = currentHead.Next;
                         Size--;
@@ -58,7 +58,7 @@ namespace LinkedList.SinglyLinkedList
 
             while(currentHead != null)
             {
-                if (currentHead.Data == value) return true;
+                if (currentHead.Data.Equals(value)) return true;
 
                 currentHead = currentHead.Next;
             }
@@ -66,13 +66,13 @@ namespace LinkedList.SinglyLinkedList
             return false;
         }
 
-        public SinglyLinkedListNode Find(string value)
+        public SinglyLinkedListNode<T> Find(string value)
         {
             var currentHead = Head;
 
             while(currentHead != null)
             {
-                if(currentHead.Data == value)
+                if(currentHead.Data.Equals(value))
                 {
                     return currentHead;
                 }
@@ -82,11 +82,11 @@ namespace LinkedList.SinglyLinkedList
             return null;
         }
 
-        public string[] ToArray()
+        public T[] ToArray()
         {
             var currentHead = Head;
 
-            string[] res = new string[Size];
+            T[] res = new T[Size];
 
             for (var i = 0; i < Size; i++)
             {
