@@ -52,7 +52,7 @@ namespace LinkedList.SinglyLinkedList
             }
         }
 
-        public bool Contains(string value)
+        public bool Contains(T value)
         {
             var currentHead = Head;
 
@@ -66,7 +66,7 @@ namespace LinkedList.SinglyLinkedList
             return false;
         }
 
-        public SinglyLinkedListNode<T> Find(string value)
+        public SinglyLinkedListNode<T> Find(T value)
         {
             var currentHead = Head;
 

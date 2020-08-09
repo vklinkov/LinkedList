@@ -25,7 +25,7 @@ namespace LinkedList.DoublyLinkedList
             Size++;
         }
 
-        public void Remove(string value)
+        public void Remove(T value)
         {
             if (Head == null) return;
 
@@ -59,7 +59,7 @@ namespace LinkedList.DoublyLinkedList
             }
         }
 
-        public bool Contains(string value)
+        public bool Contains(T value)
         {
             var currentHead = Head;
 
@@ -73,7 +73,7 @@ namespace LinkedList.DoublyLinkedList
             return false;
         }
 
-        public DoublyLinkedListNode<T> Find(string value)
+        public DoublyLinkedListNode<T> Find(T value)
         {
             var currentHead = Head;
 

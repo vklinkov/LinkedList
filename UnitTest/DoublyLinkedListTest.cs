@@ -32,8 +32,8 @@ namespace UnitTest
             doublyLinkedList.AddLast(Re);
             doublyLinkedList.AddLast(Mi);
 
-            Assert.IsTrue(Do.Next.Equals(Re) && Re.Previous.Equals(Do));
-            Assert.IsTrue(Re.Next.Equals(Mi) && Mi.Previous.Equals(Re));
+            Assert.IsTrue(Do.Next == Re && Re.Previous == Do);
+            Assert.IsTrue(Re.Next == Mi && Mi.Previous == Re);
         }
 
         [Test]
