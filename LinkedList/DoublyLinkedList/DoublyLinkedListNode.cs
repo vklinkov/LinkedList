@@ -1,16 +1,16 @@
 ﻿using System;
 namespace LinkedList.DoublyLinkedList
 {
-    public class DoublyLinkedListNode
+    public class DoublyLinkedListNode<T>
     {
-        public DoublyLinkedListNode(string data)
+        public DoublyLinkedListNode(T data)
         {
             Data = data;
         }
 
-        public string Data { get; set; }
+        public T Data { get; set; }
 
-        public DoublyLinkedListNode Next;
-        public DoublyLinkedListNode Previous;
+        public DoublyLinkedListNode<T> Next;
+        public DoublyLinkedListNode<T> Previous;
     }
 }

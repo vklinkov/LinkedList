@@ -1,14 +1,14 @@
 ﻿
 namespace LinkedList.DoublyLinkedList
 {
-    public class DoublyLinkedList
+    public class DoublyLinkedList<T>
     {
-        private DoublyLinkedListNode Head;
-        private DoublyLinkedListNode Tail;
+        private DoublyLinkedListNode<T> Head;
+        private DoublyLinkedListNode<T> Tail;
 
         private int Size = 0;
 
-        public void AddLast(DoublyLinkedListNode doublyLinkedListNode)
+        public void AddLast(DoublyLinkedListNode<T> doublyLinkedListNode)
         {
             if(Head == null)
             {
@@ -31,7 +31,7 @@ namespace LinkedList.DoublyLinkedList
 
             var currentHead = Head;
 
-            if (currentHead.Data == value)
+            if (currentHead.Data.Equals(value))
             {
                 Head = Head.Next;
                 Head.Previous = null;
@@ -43,7 +43,7 @@ namespace LinkedList.DoublyLinkedList
                 currentHead = currentHead.Next;
                 while (currentHead != null)
                 {
-                    if (currentHead.Data == value)
+                    if (currentHead.Data.Equals(value))
                     {
                         prev.Next = currentHead.Next;
                         if (prev.Next != null)
@@ -65,7 +65,7 @@ namespace LinkedList.DoublyLinkedList
 
             while (currentHead != null)
             {
-                if (currentHead.Data == value) return true;
+                if (currentHead.Data.Equals(value)) return true;
 
                 currentHead = currentHead.Next;
             }
@@ -73,13 +73,13 @@ namespace LinkedList.DoublyLinkedList
             return false;
         }
 
-        public DoublyLinkedListNode Find(string value)
+        public DoublyLinkedListNode<T> Find(string value)
         {
             var currentHead = Head;
 
             while(currentHead != null)
             {
-                if(currentHead.Data == value)
+                if(currentHead.Data.Equals(value))
                 {
                     return currentHead;
                 }
@@ -89,11 +89,11 @@ namespace LinkedList.DoublyLinkedList
             return null;
         }
 
-        public string[] ToArray()
+        public T[] ToArray()
         {
             var currentHead = Head;
 
-            string[] res = new string[Size];
+            T[] res = new T[Size];
 
             for (var i = 0; i < Size; i++)
             {

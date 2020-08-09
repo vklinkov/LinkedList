@@ -5,24 +5,24 @@ namespace UnitTest
 {
     public class DoublyLinkedListTest
     {
-        private DoublyLinkedList doublyLinkedList;
+        private DoublyLinkedList<string> doublyLinkedList;
 
         private const string DO = "Do";
         private const string RE = "Re";
         private const string MI = "Mi";
 
-        private DoublyLinkedListNode Do;
-        private DoublyLinkedListNode Re;
-        private DoublyLinkedListNode Mi;
+        private DoublyLinkedListNode<string> Do;
+        private DoublyLinkedListNode<string> Re;
+        private DoublyLinkedListNode<string> Mi;
 
         [SetUp]
         public void SetUp()
         {
-            doublyLinkedList = new DoublyLinkedList();
+            doublyLinkedList = new DoublyLinkedList<string>();
 
-            Do = new DoublyLinkedListNode(DO);
-            Re = new DoublyLinkedListNode(RE);
-            Mi = new DoublyLinkedListNode(MI);
+            Do = new DoublyLinkedListNode<string>(DO);
+            Re = new DoublyLinkedListNode<string>(RE);
+            Mi = new DoublyLinkedListNode<string>(MI);
         }
 
         [Test]
@@ -90,7 +90,7 @@ namespace UnitTest
             doublyLinkedList.AddLast(Do);
             doublyLinkedList.AddLast(Mi);
 
-            DoublyLinkedListNode linkedListNode = doublyLinkedList.Find(RE);
+            var linkedListNode = doublyLinkedList.Find(RE);
 
             Assert.IsNull(linkedListNode);
         }
